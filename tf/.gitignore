@@ -1,0 +1,4 @@
+.terraform
+functions
+terraform.tfstate*
+

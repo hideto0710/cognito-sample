@@ -1,0 +1,7 @@
+{
+    "userName": "string",
+    "request": {
+        "password": "string"
+    },
+    "triggerSource": "UserMigration_Authentication"
+}

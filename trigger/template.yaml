@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Cognito Trigger Sample
+Globals:
+    Function:
+        Timeout: 3
+Resources:
+    SampleResponse:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: cognito-trigger/
+            Handler: app.sample
+            Runtime: nodejs8.10
+            Events:
+                Sample:
+                    Type: Api
+                    Properties:
+                        Path: /
+                        Method: post
+    TriggerFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: cognito-trigger/
+            Handler: app.handler
+            Runtime: nodejs8.10
+            Environment:
+                Variables:
+                    PARAM1: VALUE
